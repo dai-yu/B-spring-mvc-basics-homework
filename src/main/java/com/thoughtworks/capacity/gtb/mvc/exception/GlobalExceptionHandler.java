@@ -10,7 +10,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UserNameExistException.class)
     public ResponseEntity<ErrorMessage> handle(UserNameExistException ex) {
-        ErrorMessage errorMessage = new ErrorMessage(ex.getMessage());
+        ErrorMessage errorMessage = new ErrorMessage("400",ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessage);
     }
 }

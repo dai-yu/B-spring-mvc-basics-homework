@@ -15,6 +15,10 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private int id;
+
     @NotNull(message = "username can not be empty")
     @Pattern(regexp = "\\w+", message = "username should consist of alphanumerics and/or underscore")
     @Size(min = 3, max = 10, message = "username should be between 3 and 10 characters long")

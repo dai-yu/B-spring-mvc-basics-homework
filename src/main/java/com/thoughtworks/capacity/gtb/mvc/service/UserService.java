@@ -11,11 +11,11 @@ import java.util.Map;
 public class UserService {
     private Map<String, User> userMap = new HashMap<>();
 
-
     public void register(User user) {
         if (isExist(user)) {
             throw new UserNameExistException("username already exists");
         }
+        user.setId(userMap.size()+1);
         userMap.put(user.getUsername(),user);
     }
 

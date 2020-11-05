@@ -1,6 +1,7 @@
 package com.thoughtworks.capacity.gtb.mvc.service;
 
 import com.thoughtworks.capacity.gtb.mvc.domain.User;
+import com.thoughtworks.capacity.gtb.mvc.exception.UserNameExistException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class UserService {
 
     public void register(User user) {
         if (isExist(user)) {
-
+            throw new UserNameExistException("username already exists");
         }
         userMap.put(user.getUsername(),user);
     }
